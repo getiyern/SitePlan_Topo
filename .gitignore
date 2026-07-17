@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Local raw parcel source (325 MB) + transient DEM rasters
+il_kendall*.json
+il_kendall*.geojson
+*_3dep_dem_ft.tif
+
+# py3dep / requests-cache
+cache/
+
+# Scratch / logs
+scratch_*
+*.log

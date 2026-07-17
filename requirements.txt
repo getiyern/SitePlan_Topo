@@ -1,0 +1,33 @@
+# Terrain-informed Kendall County site planner -- runtime dependencies.
+# Verified on Python 3.14 (Windows). Install with:  pip install -r requirements.txt
+#
+# NOTE: do NOT install `aiodns` / `pycares`. py3dep's async HTTP stack (aiohttp)
+# will pick up c-ares for DNS if present, which fails on many Windows machines
+# ("Could not contact DNS servers") and silently forces the synthetic-terrain
+# fallback. Without them, aiohttp uses its thread-based resolver and the live
+# USGS 3DEP fetch works.
+
+# --- UI ---
+streamlit==1.59.2
+streamlit-folium==0.27.2
+folium==0.20.0
+
+# --- geospatial core ---
+geopandas==1.1.4
+shapely==2.1.2
+pyproj==3.7.2
+rasterio==1.5.0
+rioxarray==0.22.0
+pyarrow==24.0.0            # GeoParquet read/write
+
+# --- terrain (USGS 3DEP) ---
+py3dep==0.19.0
+
+# --- analysis / plotting ---
+numpy==2.5.1
+pandas==3.0.3
+matplotlib==3.11.0
+seaborn==0.13.2
+
+# --- geocoding (address -> lon/lat fallback) ---
+geopy==2.5.0
